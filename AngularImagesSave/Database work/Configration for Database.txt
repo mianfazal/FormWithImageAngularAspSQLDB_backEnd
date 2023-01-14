@@ -1,0 +1,11 @@
+
+1) Open SQL server and copy SQL server name.
+2) Open appsettings.json file of backend project and paste sql server name in "ConnectionStrings" as shown in figure(appSetting png file)
+3) Create Database name with same name "saveImages" ( or your choice ).
+4) Create table with same name (ImageData). CreateTable.txt file for creating table.
+5) Create Store procedure with same name (retrieveImage). retrieveImage.txt file for creating store procedure.
+6) Create Store procedure with same name (saveImageData). saveImageData.txt file for creating store procedure.
+   
+
+
+

@@ -1,0 +1,23 @@
+
+CREATE PROCEDURE [dbo].[retrieveImage]
+
+@Image_Name  varchar(100) ,  
+ @Response varchar(max) OUT
+
+ AS  
+ BEGIN
+ SET NOCOUNT ON;
+ IF Exists (select * from ImageData WHERE ImageName = @Image_Name )
+ BEGIN  
+ --do what you need if exists
+  set @Response = (select ImagePath from ImageData WHERE ImageName = @Image_Name) ;
+END 
+ 
+
+ ELSE
+BEGIN
+--do what needs to be done if not
+	set @Response = 'Data not exists';
+END
+
+END

@@ -1,0 +1,29 @@
+CREATE PROCEDURE [dbo].[saveImageData]
+
+@Image_Name  varchar(100),  
+@Image_Path varchar(max),
+ @Response varchar(20) OUT
+
+ AS  
+
+ BEGIN
+ SET NOCOUNT ON;
+ IF Exists (select * from ImageData WHERE ImageName = @Image_Name )
+ BEGIN  
+ --do what you need if exists
+ 
+ update ImageData set ImagePath = @Image_Path where  ImageName = @Image_Name
+set @Response = 'Already Exists'
+END 
+ 
+
+ ELSE
+BEGIN
+--do what needs to be done if not
+	;
+	Insert into ImageData(ImageName, ImagePath)  
+	values(@Image_Name,@Image_Path) 
+	set @Response = 'Data Inserted'
+END
+
+END
